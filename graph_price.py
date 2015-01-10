@@ -38,8 +38,8 @@ def graph(prices, dates):
     plt.ylabel('Price')
     plt.title('Average price vs day of the week')
     plt.legend()
+    plt.savefig('by_weekday.png')
     plt.show()
-    plt.savefig('by_weekday.jpg')
 
 
 
