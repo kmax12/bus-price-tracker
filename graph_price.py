@@ -6,6 +6,8 @@ from collections import defaultdict
 import numpy as np
 # import time
 from datetime import datetime
+from matplotlib.font_manager import FontProperties
+
 
 def get_prices_dates(filename):
     dates = defaultdict(list)
@@ -31,12 +33,15 @@ def graph(prices, dates):
     dates = [x[1] for x in sorted_dates]
     prices = [x[0] for x in sorted_dates]
 
+    plt.figure(figsize=(20,12))
+
     for i in range(7):
         plt.plot(dates[i::7], prices[i::7], label=dates[i].strftime("%A"))
 
     plt.xlabel('Date')
     plt.ylabel('Price')
     plt.title('Average price vs day of the week')
+
     plt.legend()
     plt.savefig('by_weekday.png')
     plt.show()
